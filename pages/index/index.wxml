@@ -1,13 +1,24 @@
 <!--index.wxml-->
+<view class="imageInfo">
+  <image class="musicPicture" mode="aspectFit" bindtap="onMusicTap" src="{{isPlayMusic?'http://p5vnm2kox.bkt.clouddn.com/images/music.gif':'http://p5vnm2kox.bkt.clouddn.com/images/music_pause.png'}}">
+  播放音乐
+  </image>
+  </view>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="userWelcome">
+    <text class="user-welcome">Welcome To CXY' Blog!</text>
   </view>
+  
+  <view class="contact">
+   <text class="contact-qq ">QQ:793755040</text>
+   <text class="contact-number">电话号码：18858650736</text>
+   <text class="contact-motto">千里之行，始于足下</text>
+   </view>
 </view>

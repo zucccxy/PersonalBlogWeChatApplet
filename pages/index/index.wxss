@@ -1,5 +1,7 @@
 /**index.wxss**/
+@import "../../utils/font.wxss";
 .userinfo {
+  margin-top:20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +18,24 @@
   color: #aaa;
 }
 
-.usermotto {
-  margin-top: 200px;
+.userWelcome {
+  margin-top: 50px;
+}
+.musicPicture{
+  width:25px;
+  height:25px;
+  margin:10px;
+}
+.imageInfo{
+ display: flex;
+ flex-direction:column;
+ align-items:flex-end;
+}
+.container{
+  padding:10rpx 0;
+}
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

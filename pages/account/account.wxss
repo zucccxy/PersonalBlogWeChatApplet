@@ -1,0 +1,28 @@
+/* pages/account/account.wxss */
+.userInfo {
+  display: flex;
+  flex-direction: row;
+}
+.my{
+  display: flex;
+  flex-direction: column;
+}
+.sign{
+  display: flex;
+  flex-direction: column;
+}
+.other{
+  display: flex;
+  flex-direction:column;
+
+}
+.line {
+  background-color: lightgray;
+  height: 1px;
+  width: 100%;
+}
+.bigline{
+  background-color:gray;
+  height: 5px;
+  width: 100%;
+}

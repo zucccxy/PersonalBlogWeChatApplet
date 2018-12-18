@@ -1,52 +1,99 @@
 <!--pages/account/account.wxml-->
-<view class="bigline"></view>
 <view class="userInfo">
- <view class="userInfo-avatar">
-  <image src="../../image/kobe.png"></image>
- </view>
- <view class="userInfo-message">
- <view>
+  <view class="userInfo-avatar" style="flex:1">
+    <image class="avatarUrl " src="../../image/kobe.png"></image>
+  </view>
+  <view class="userInfo-message " style="flex:1">
+    <view class="userInfo-message-name">
+      <text>Kim</text>
+    </view>
+    <view class="userInfo-message-signtime">
+      <text>已签到1天</text>
+    </view>
+  </view>
 </view>
 <view class="bigline"></view>
 <view class="my">
-<view class="my-new">
-<text>我的消息</text>
-</view>
-<view class="line"></view>
-<view class="my-collection">
-<text>我的收藏</text>
-</view>
+  <view bindtap="enterMyNews" class="list-li">
+    <view class='list-tx'>
+      <view class='list-tx-img'>
+        <image src="../../image/my.png"></image>
+      </view>
+      <text>我的消息</text>
+    </view>
+  </view>
+  <!-- <view class="my-new">
+    <view class="my-new-icon" style="width:50rpx">
+      <image class="my-new-icon-picture" src="../../image/my.png"></image>
+    </view>
+    <view class="my-new-text">
+      <text>我的消息</text>
+    </view>
+  </view> -->
+
+  <view class="line"></view>
+  <view bindtap="enterMyCollection" class="list-li">
+    <view class='list-tx'>
+      <view class='list-tx-img'>
+        <image src="../../image/notice.png"></image>
+      </view>
+      <text>我的收藏</text>
+    </view>
+  </view>
+  <!-- <view class="my-collection">
+    <view>
+      <text>我的收藏</text>
+    </view>
+    <view></view>
+
+  </view> -->
 </view>
 <view class="bigline"></view>
 <view class="sign">
-<view class="sign-icon">
-<text>图标</text>
-</view>
-<view class="line"></view>
-<view class="sign-image">
-<text>图片</text>
-</view>
-<view class="line"></view>
-<view class="sign-time">
-<text>签到时间</text>
-</view>
+  <!-- <view class="sign-icon">
+    <text>图标</text>
+  </view> -->
+  <view class="list-li">
+    <view class='list-tx'>
+      <view class='list-tx-img'>
+        <image src="../../image/sign.png"></image>
+      </view>
+      <text>签到</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="sign-image">
+    <button class='success btn ml-sm iconfont icon-locationfill'>
+    </button>
+  </view>
+  <view class="sign-time">
+    <text class="sign-time-center">点击按钮进行签到</text>
+  </view>
 </view>
 <view class="bigline"></view>
 <view class="other">
-<view class="other-icon">
-<text>图标</text>
+  <!-- <view class="other-icon">
+    <text>图标</text>
+  </view> -->
+  <view class="list-li">
+    <view class='list-tx'>
+      <view class='list-tx-img'>
+        <image src="../../image/other.png"></image>
+      </view>
+      <text>其他</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="other-share">
+    <button plain="true" style="border: 0;margin: 0;padding: 0;font-size: 18px;color:#000000;line-height: 1;width: 100%;text-align: left;" open-type="share">分享给好友
+    </button>
+  </view>
+  <view class="line"></view>
+  <view bindtap="enterFeedback" class="other-feedback">
+    <text>反馈意见</text>
+  </view>
+  <view class="line"></view>
+  <view bindtap="showAbout" class="other-about">
+    <text>关于本程序</text>
+  </view>
 </view>
-<view class="line"></view>
-<view class="other-share">
-<text>分享给好友</text>
-</view>
-<view class="line"></view>
-<view class="other-feedback">
-<text>反馈意见</text>
-</view>
-<view class="line"></view>
-<view class="other-about">
-<text>关于本程序</text>
-</view>
-</view>
-

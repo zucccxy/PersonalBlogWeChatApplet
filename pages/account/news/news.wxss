@@ -1,1 +1,13 @@
 /* pages/account/news/news.wxss */
+page{
+  background: #eee;
+}
+.bigline{
+ 
+  height: 10px;
+  width: 100%;
+}
+.goods-list-img{
+  width: 100rpx;
+  height: 100rpx;
+}

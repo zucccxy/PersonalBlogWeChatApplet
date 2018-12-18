@@ -1,1 +1,4 @@
 /* pages/account/feedback/feedback.wxss */
+page {
+  background-color: #eee;
+}

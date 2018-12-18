@@ -5,9 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgUrls: [
+      '../../image/school.jpg', 
+      '../../image/kobe.png',
+      '../../image/zhaopin.jpg'
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 2000,
+    duration: 1000,
+    disabled: false
+  },
+  enterDetail: function(event){
+    wx.navigateTo({
+      url: '/pages/article/articleDetail/articleDetail?type="1"',
+      
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

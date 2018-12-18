@@ -1,2 +1,64 @@
 <!--pages/article/article.wxml-->
-<text>pages/article/article.wxmls</text>
+<view class="blog">
+  <!--轮播图-->
+  <view>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" style="width:100%" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="tag">
+    <view class="content">
+      <view class="active">标签
+      </view>
+      </view>
+      <!-- <view>标签1</view>
+      <view>标签2</view>
+      <view>标签3</view> -->
+  </view>
+  <view class="line"></view>
+  <view class="article">
+    <view class="article-item">
+      <!-- <view bindtap="enterDetail" class="article-list">
+        <text  style="color:#000000">哈哈哈s</text>
+      </view> -->
+      <!-- 卡片 -->
+      <view class="article-list-li" bindtap="enterDetail">
+        <view class="article-list-title">这是没有图片的文章列表项的标题</view>
+        <view class="article-list-content">
+          <view class="article-list-desc">
+            <view class='article-list-text'>其实吧，做程序员也不都是枯燥乏味的，比如我吧，为了写段话在这里凑字数也是很开心的呀，嘻嘻嘻！求关注！持续更新组件...</view>
+            <!-- <view class="article-list-tag">
+          <view class='badge warning round'># 严肃脸 #</view>
+        </view> -->
+          </view>
+        </view>
+        <view class="item-list-data">
+          <image src="http://image.weilanwl.com/img/4x4.jpg" class='round'></image>
+          <view class='item-list-author'>
+            <view class="item-list-name">文晓港
+              <text>/ 90后</text>
+            </view>
+            <view class="item-list-info">
+              <text class="iconfont icon-timefill"> 十天前</text>
+              <view class="item-list-num">
+                <text class="iconfont icon-attentionfill"> 10</text>
+                <text class="iconfont icon-favorfill"> 20</text>
+                <text class="iconfont icon-messagefill"> 30</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="article-list">
+        <text style="color:#000000">哈哈哈s</text>
+      </view> -->
+    </view>
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载完</view>
+    </view>
+  </view>
+</view>

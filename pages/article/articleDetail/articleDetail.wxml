@@ -1,2 +1,72 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
-<text>pages/article/articleDetail/articleDetail.wxml</text>
+
+<view class="article">
+  <view class="article-detail">
+    <view class="article-detail-content">
+      <view class="header">
+        <view class="header-cover no-cover">
+          <view class="caption">
+            <view class="text-lg title">微信小程序</view>
+            <view class="time page__desc">发布时间:
+              <text>2018年12月10日</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="article-section">
+        <view class="article-content">
+          <text>测试文章</text>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+  <view class="article-tail">
+    <view class="resp-input-cell">
+      <input class="resp-input" type="text" placeholder="说点什么吧..." bindinput="commentInput" />
+    </view>
+    <view class="like-btn">
+      <image class="like-btn-img" src="../../../image/collect.png" bindtap="changeImage"></image>
+      <!-- <image v-else class="like-btn-img" src="../../static/assets/no-collect.png" bindtap="changeImage"></image> -->
+    </view>
+    <button class="success btn resp-btn" type="primary" formType="submit">发送</button>
+  </view>
+  <view style="padding: 20px 10px">
+    <view class="resp-head">全部评论(1)</view>
+    <view class="comment">
+      <view class="comment-info">
+        <view class="comment-author">
+          <view>
+            <image class="comment-author-icon" src="../../../image/kobe.png"></image>
+          </view>
+          <view class="comment-author-info">
+            <view>陈星宇</view>
+            <view style="margin-top: 5px;">2018年12月10日</view>
+          </view>
+        </view>
+
+        <view class="comment-author-position">
+          <view bindtap="reply">
+            <image src="../../../image/comment.png" style="width: 20px;height: 20px;margin-bottom: 7px;"></image>
+          </view>
+          <view>1楼</view>
+        </view>
+      </view>
+      <view>
+        <view class="h2w h2w-light">
+          <view class="h2w__main">
+            <!--回复谁 -->
+            <view class="zan-c-red">@孙昭</view>
+            <!-- <view class="h2w__p" 
+            data-alpha="undefined" data-data="undefined" data-ename="undefined" data-href="undefined" data-id="undefined" data-name="undefined" data-src="undefined" data-url="undefined" id=""
+            > -->
+            <view class="h2w_p">
+              真香
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

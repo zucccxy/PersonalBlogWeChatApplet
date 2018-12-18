@@ -5,9 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+  
   },
-
+  enterMyNews:function(event){
+    wx.navigateTo({
+      url: '/pages/account/news/news?type="1"',
+    })
+  },
+  enterMyCollection:function(event){
+    wx.navigateTo({
+      url: '/pages/account/collection/collection?type="1"',
+    })
+  },
+  enterFeedback:function(event){
+    wx.navigateTo({
+      url: '/pages/account/feedback/feedback?type="1"',
+    })
+  },
+  showAbout:function(event){
+    wx.showModal({
+      title: '关于',
+      content: '本项目仅供交流学习使用',
+      showCancel:false
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -61,6 +83,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+   return {
+     title:"不忘初心，方得始终。",
+     path: "/pages/index/index",
+     imageUrl:"/image/kobe.png"
+     
+   }
   }
 })

@@ -1,2 +1,19 @@
 <!--pages/account/feedback/feedback.wxml-->
-<text>pages/account/feedback/feedback.wxml</text>
+
+<form bindsubmit='formSubmit' bindreset='formReset'> 
+<view class='form-box'>
+    <view class='form-item'>
+      <view class='form-title'>
+        联系方式:
+      </view>
+      <input class='' type="text" placeholder="请输入联系方式" class='form-input'></input>
+    </view>
+     <view class="form-item form-textarea {{modalName==null?'':'hide'}}">
+      <view class='form-title'>
+        反馈内容:
+      </view>
+      <textarea placeholder='请输入反馈内容' maxlength="-1"></textarea>
+    </view>
+  </view>
+  <button style="margin: 10rpx" type="primary">提交</button>
+  </form>

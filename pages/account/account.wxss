@@ -2,14 +2,30 @@
 .userInfo {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .my{
   display: flex;
   flex-direction: column;
 }
+.my-new{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.my-new-icon-picture{
+  width: 20px;
+  height: 20px;
+ 
+}
 .sign{
   display: flex;
   flex-direction: column;
+}
+.sign-time-center{
+  margin-left:35%
 }
 .other{
   display: flex;
@@ -22,7 +38,23 @@
   width: 100%;
 }
 .bigline{
-  background-color:gray;
-  height: 5px;
+  background-color:#eeeeee;
+  height: 10px;
   width: 100%;
+}
+.avatarUrl {
+ width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  margin-left: 80rpx;
+  border-radius: 50%;
+}
+.userInfo-message-name{
+  margin-top: 30rpx;
+}
+.userInfo-message-signtime{
+  margin-top: 10rpx;
+}
+.ml-sm{
+  margin-left:45%
 }

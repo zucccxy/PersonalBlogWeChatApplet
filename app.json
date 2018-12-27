@@ -1,49 +1,50 @@
 {
   "pages": [
- 
-   "pages/index/index",
+    "pages/index/index",
+    
+    "pages/logIn/logIn",
+    "pages/register/register",
   
     "pages/article/article",
     "pages/article/articleDetail/articleDetail",
-  
+
     "pages/account/account",
     "pages/account/collection/collection",
     "pages/account/news/news",
     "pages/account/feedback/feedback"
   ],
-
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0099FF",
     "navigationBarTitleText": "CXY's Blog",
     "navigationBarTextStyle": "white",
-    "backgroundColor":"#0099FF"
+    "backgroundColor": "#0099FF"
   },
   "tabBar": {
-    "color":"#7A7E83",
-    "selectedColor":"#FF0000",
-    "borderStyle":"#3891f8",
-    "backgroundColor":"#FFFFFF",
+    "color": "#7A7E83",
+    "selectedColor": "#FF0000",
+    "borderStyle": "#3891f8",
+    "backgroundColor": "#FFFFFF",
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath": "image/index1.png",
-      "selectedIconPath": "image/index.png"
-    },
-    {
-      "pagePath": "pages/article/article",
-      "text": "博文",
-      "iconPath": "image/news.png",
-      "selectedIconPath": "image/news-active.png"
-    },
-    {
-      "pagePath": "pages/account/account",
-      "text":"我的",
-      "iconPath":"image/center.png",
-      "selectedIconPath":"image/center-active.png"
-    }
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "image/index1.png",
+        "selectedIconPath": "image/index.png"
+      },
+      {
+        "pagePath": "pages/article/article",
+        "text": "博文",
+        "iconPath": "image/news.png",
+        "selectedIconPath": "image/news-active.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "text": "我的",
+        "iconPath": "image/center.png",
+        "selectedIconPath": "image/center-active.png"
+      }
     ]
   },
-  "debug":true
+  "debug": true
 }

@@ -1,0 +1,38 @@
+  <!--pages/register/register.wxml-->
+ <view class='row'>
+        <view class='info'>
+               <input  class= 'info-input1' bindinput="handleInputPhone" placeholder="请输入你的账号" />
+         </view>
+          <!-- <button class='button' bindtap='doGetCode' disabled='{{disabled}}' style="background-color:{{color}}" >{{text}}</button> -->
+ </view>
+ <!-- <view class='row'>
+        <view class='info'>
+               <input  class= 'info-input' bindinput="handleVerificationCode" placeholder="请输入你的验证码" />
+         </view>
+ 
+ </view> -->
+  <view class='row'>
+        <view class='info'>
+               <input type='password' class= 'info-input' bindinput="handleNewChanges" placeholder="请输入你的用户名" />
+         </view>
+ 
+ </view>
+  <view class='row'>
+        <view class='info'>
+               <input type='password' class= 'info-input' bindinput="handleNewChanges" placeholder="请输入你的密码" />
+         </view>
+ 
+ </view>
+  <view class='row'>
+        <view class='info'>
+               <input  type='password' class= 'info-input' bindinput="handleNewChangesAgain" placeholder="请重新输入你的密码" />
+         </view>
+ 
+ </view>
+ <button class='submit' bindtap='submit'>提交</button>
+
+ <!-- <view class = 'success' wx:if="{{success}}">
+ <view class='cheer'><icon type="success" size="24"/> 恭喜您注册成功!</view>
+ <text>注册成</text>
+ <button type = "default" class = 'return' bindtap='return_home'>返回首页</button>
+ </view> -->

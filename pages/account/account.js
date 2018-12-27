@@ -1,11 +1,13 @@
 // pages/account/account.js
+const app=getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-  
+    islogin:false,
+avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1tHibiaCkiaSOH5BpTOSybBQbKOR7zd8HNiczQkialNLktfkWoaA8XPArkA/132",
+    username:"游客",
   },
   enterMyNews:function(event){
     wx.navigateTo({
@@ -29,12 +31,25 @@ Page({
       showCancel:false
     })
   },
-  
+  enterLogIn:function(event){
+    wx.navigateTo({
+      url: '/pages/logIn/logIn',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let url = wx.getStorageSync('avatarUrl'); 
+    let isLogin=wx.getStorageSync('isLogin');
+   if(isLogin!= undefined && isLogin!= ''){
+       this.setData({
+         islogin:isLogin
+       })
+   }
+    this.setData({
+      avatarUrl:url
+    })
   },
 
   /**

@@ -1,0 +1,19 @@
+<!--pages/logIn/logIn.wxml-->
+<view class="main">
+  <form bindsubmit='logIn' bindreset='formReset'>
+    <view class="main_text">
+      <text class="login_word">LOGIN</text>
+      <input name="account" class="input" placeholder="账号" />
+      <input name="password" class="input" placeholder="密码  " />
+    </view>
+    <view class="button-group">
+      <button style="margin-right:5%" form-type="submit" size="mini">登录</button>
+      <button form-type="reset" size="mini">重置</button>
+    </view>
+    <view class="button-register">
+    <button  bindtap="register" style="margin-top:5%"size="mini">
+      注册
+    </button>
+    </view>
+  </form>
+</view>

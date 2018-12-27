@@ -1,18 +1,39 @@
 <!--pages/account/account.wxml-->
-<view class="userInfo">
-  <view class="userInfo-avatar" style="flex:1">
+<!-- <view class="userInfo"> -->
+  <!-- <view class="userInfo-avatar" style="flex:1">
     <image class="avatarUrl " src="../../image/kobe.png"></image>
   </view>
-  <view class="userInfo-message " style="flex:1">
-    <view class="userInfo-message-name">
+  <view class="userInfo-message " style="flex:1"> -->
+    <!-- <view class="userInfo-message-name">
       <text>Kim</text>
     </view>
     <view class="userInfo-message-signtime">
       <text>已签到1天</text>
     </view>
+   -->
+  <!-- </view>
+</view> -->
+<view class="user" style='margin-bottom: 0rpx'>
+ <view class="user-top">
+    <view class="user-img">
+      <image src="{{avatarUrl}}" class='radius'></image>
+    </view>
+    <view class="user-text">
+      <view class="user-name">
+       {{username}}
+      </view>
+      <view class="user-sub cf">
+        <navigator  hidden="{{!islogin}}" hover-class='none' class='gray btn xs round'>编辑资料</navigator>
+        <!-- <navigator hover-class='none' class='fr'>
+          <text class='iconfont icon-qrcode'></text> 个人名片</navigator> -->
+      </view>
+    </view>
   </view>
-</view>
+   <view class='user-bg' style='background-image:url(http://www.diwuyuan.com/bbs/uc_server/data/avatar/000/00/02/52_avatar_big.jpg)'>
+  </view>
+  </view>
 <view class="bigline"></view>
+ <block wx:if="{{islogin}}">
 <view class="my">
   <view bindtap="enterMyNews" class="list-li">
     <view class='list-tx'>
@@ -22,15 +43,6 @@
       <text>我的消息</text>
     </view>
   </view>
-  <!-- <view class="my-new">
-    <view class="my-new-icon" style="width:50rpx">
-      <image class="my-new-icon-picture" src="../../image/my.png"></image>
-    </view>
-    <view class="my-new-text">
-      <text>我的消息</text>
-    </view>
-  </view> -->
-
   <view class="line"></view>
   <view bindtap="enterMyCollection" class="list-li">
     <view class='list-tx'>
@@ -40,13 +52,6 @@
       <text>我的收藏</text>
     </view>
   </view>
-  <!-- <view class="my-collection">
-    <view>
-      <text>我的收藏</text>
-    </view>
-    <view></view>
-
-  </view> -->
 </view>
 <view class="bigline"></view>
 <view class="sign">
@@ -70,6 +75,13 @@
     <text class="sign-time-center">点击按钮进行签到</text>
   </view>
 </view>
+ </block>
+  <block wx:else>
+   <view class="noLogin">
+   <view class="text-xxl" style="margin-top: 50px">更多功能请登陆之后查看</view>
+   <button  bindtap="enterLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px">点击登陆</button>
+   </view>
+  </block>
 <view class="bigline"></view>
 <view class="other">
   <!-- <view class="other-icon">
@@ -85,15 +97,16 @@
   </view>
   <view class="line"></view>
   <view class="other-share">
-    <button plain="true" style="border: 0;margin: 0;padding: 0;font-size: 18px;color:#000000;line-height: 1;width: 100%;text-align: left;" open-type="share">分享给好友
+    <button  plain="true" style="border: 0;margin: 10px;padding: 0;font-size: 18px;color:#000000;line-height: 1;width: 100%;text-align: left;" open-type="share">分享给好友
     </button>
   </view>
   <view class="line"></view>
   <view bindtap="enterFeedback" class="other-feedback">
-    <text>反馈意见</text>
+    <text style="margin: 10px">反馈意见</text>
   </view>
   <view class="line"></view>
   <view bindtap="showAbout" class="other-about">
-    <text>关于本程序</text>
+    <text style="margin: 10px">关于本程序</text>
   </view>
+  <view class="line"></view>
 </view>

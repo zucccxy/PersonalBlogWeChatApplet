@@ -1,11 +1,49 @@
 // pages/account/feedback/feedback.js
+const app = getApp();
+const common = require('../../../utils/common.js');
+const util = require('../../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+   
+  },
+  formSubmit:function(event){
+    console.log(event.detail.value);
+    var contact = event.detail.value.contact;
+    var content = event.detail.value.content;
+    var userId= wx.getStorageSync("useId");
+    if(userId == ""){
+       userId= -1;
+    }
+    if(contact === ""){
+      common.showModal("联系方式不能为空！");
+    }else if(content === ""){
+      common.showModal("内容不能为空！");
+    }else{
+      var data={
+        userId:userId,
+        feedbackContent:content,
+        contact:contact
+      }
+      wx.showLoading({
+        title: '反馈提交中，请稍后！',
+      });
+      app.httpForm("user/submitFeedback", util.json2Form(data),"POST").then(res=>{
+        wx.hideLoading();
+        if(res.code === 1){
+          common.showTip("反馈提交成功，正在跳转","success",function(){
+            wx.switchTab({
+              url: '../../account/account',
+            })
+          })
+        }else {
+          common.showModal(res.message, "提示");
+        }
+      })
+    }
   },
 
   /**

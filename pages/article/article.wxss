@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap:wrap;
   background:  #fff;
 }
 
@@ -44,7 +45,7 @@ page{
   background:#eee;
 }
  .content {
-        padding: 12px 0 5px 10px;
+        padding: 3px 0 0px 5px;
     }
 
     .content view {
@@ -88,8 +89,8 @@ page{
         background: #fff;
     }
 
-    .content view:active {
-        background: #f70;
+   .content view:active {
+       background: #f70;
         color: #fff;
     }
 

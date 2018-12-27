@@ -1,5 +1,7 @@
 // pages/account/account.js
 const app=getApp()
+const common = require('../../utils/common.js');
+const util = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
@@ -8,6 +10,7 @@ Page({
     islogin:false,
 avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1tHibiaCkiaSOH5BpTOSybBQbKOR7zd8HNiczQkialNLktfkWoaA8XPArkA/132",
     username:"游客",
+    signCountTime:0
   },
   enterMyNews:function(event){
     wx.navigateTo({
@@ -36,20 +39,24 @@ avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1t
       url: '/pages/logIn/logIn',
     })
   },
+  backLogIn:function(event){
+    app.globalData.isLogin=false;
+    app.globalData.username="游客";
+    app.httpForm('user/logOut',{},"POST").then(res=>{
+     if(res.code === 1){
+      wx.clearStorageSync();
+      wx.navigateTo({
+        url: '/pages/logIn/logIn',
+      })
+     }
+    })
+   
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let url = wx.getStorageSync('avatarUrl'); 
-    let isLogin=wx.getStorageSync('isLogin');
-   if(isLogin!= undefined && isLogin!= ''){
-       this.setData({
-         islogin:isLogin
-       })
-   }
-    this.setData({
-      avatarUrl:url
-    })
+    
   },
 
   /**
@@ -63,7 +70,15 @@ avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1t
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let url = wx.getStorageSync('avatarUrl');
+      this.setData({
+        islogin: app.globalData.isLogin,
+        username:app.globalData.username
+      })
+    if (url != undefined && url != '')
+      this.setData({
+        avatarUrl: url
+      })
   },
 
   /**

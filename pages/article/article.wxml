@@ -11,8 +11,8 @@
     </swiper>
   </view>
   <view class="tag">
-    <view class="content">
-      <view class="active">标签
+    <view  wx:for="{{categoryList}}" class="content">
+      <view class="active">{{item.categoryName}}
       </view>
       </view>
       <!-- <view>标签1</view>

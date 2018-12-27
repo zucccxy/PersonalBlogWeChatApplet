@@ -17,11 +17,19 @@ Page({
       userAccount:account,
       userPwd:password
     }
+    wx.showLoading({
+      title: '用户登录中，请稍后！',
+    });
     app.httpForm("user/userLogIn", util.json2Form(data),"POST").then(res=>{
-      if(res.data.code==='1'){
+      wx.hideLoading();
+      if(res.code=== 1){
+        app.globalData.header.Cookie='server='+res.data.data;
+        app.globalData2.header.Cookie='server='+res.data.data;
         wx.setStorageSync("userAccount",account);
         wx.setStorageSync("userPwd",password);
-        wx.setStorageSync("isLogin", true);
+        wx.setStorageSync("userId",res.data.user.userId);
+        app.globalData.username=res.data.user.username;
+        app.globalData.isLogin=true;
         common.showTip("登录成功,正在跳转", "success", function () {
           console.log("登陆成功！");
           wx.switchTab({
@@ -29,7 +37,7 @@ Page({
           })
         });    
       }else{
-        common.showModal(res.data.message,"提示");
+        common.showModal(res.message,"提示");
       }
     }  
     )

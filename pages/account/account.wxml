@@ -21,7 +21,12 @@
     <view class="user-text">
       <view class="user-name">
        {{username}}
+       <block wx:if="{{islogin}}">
+        <text style="margin-left:20%">签到天数:</text>
+        <text >{{signCountTime}}天</text>
+        </block>
       </view>
+       
       <view class="user-sub cf">
         <navigator  hidden="{{!islogin}}" hover-class='none' class='gray btn xs round'>编辑资料</navigator>
         <!-- <navigator hover-class='none' class='fr'>
@@ -41,6 +46,7 @@
         <image src="../../image/my.png"></image>
       </view>
       <text>我的消息</text>
+           <view class="weui-badge" style="margin-left: 5px;">8</view>
     </view>
   </view>
   <view class="line"></view>
@@ -79,7 +85,7 @@
   <block wx:else>
    <view class="noLogin">
    <view class="text-xxl" style="margin-top: 50px">更多功能请登陆之后查看</view>
-   <button  bindtap="enterLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px">点击登陆</button>
+   <button  bindtap="enterLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px">点击登录</button>
    </view>
   </block>
 <view class="bigline"></view>
@@ -109,4 +115,8 @@
     <text style="margin: 10px">关于本程序</text>
   </view>
   <view class="line"></view>
+  <view  hidden="{{!islogin}}" class="LogOut">
+       <button  bindtap="backLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px;">退出登录</button>
+    </view>
+
 </view>

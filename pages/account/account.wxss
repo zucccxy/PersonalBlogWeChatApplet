@@ -63,3 +63,8 @@
   flex-direction: column;
   align-items:center;
 }
+.LogOut{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}

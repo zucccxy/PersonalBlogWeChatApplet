@@ -49,7 +49,9 @@ App({
         data: data,
         method: method,
         success: function(res) {
-          if (res.data.code === 1) {} 
+          if (res.data.code === 1) {
+
+          } 
           else if (res.data.code === 2 || res.data=== "noLogIn" ) {
             wx.showToast({
               title: '自动登录中',
@@ -114,7 +116,7 @@ App({
         success: function(res) {
 
           if (res.data.code === 1) {
-
+  
          } else if (res.data.code === 2 || res.data === 
          "noLogIn") {
             wx.showToast({
@@ -129,7 +131,7 @@ App({
             }
             else{
             wx.request({
-              url: 'http://localhost:10010/api/user/userLogIn',
+              url: 'http://localhost:12080/api/user/userLogIn',
               data: "userAccount=" + userAccount + "&userPwd=" + userPwd,
               header: getApp().globalData2.header,
               method: method,
@@ -174,7 +176,9 @@ App({
     header: {
       'Cookie': '',
       'content-type': 'application/json'
-    }
+    },
+    isLogin:false,
+    username:"游客", 
   },
   globalData2: {
     userInfo: null,

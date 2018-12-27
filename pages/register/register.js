@@ -1,5 +1,7 @@
 // pages/register/register.js
 const app=getApp();
+const common = require('../../utils/common.js');
+const util = require('../../utils/util.js');
 Page({
 
   /**
@@ -8,7 +10,46 @@ Page({
   data: {
     
   },
-
+  handleRegister:function(event){
+   console.log(event.detail.value);
+   var account=event.detail.value.account;
+   var username=event.detail.value.username;
+   var password=event.detail.value.password;
+   var passwordAgain=event.detail.value.passwordAgain;
+    var avatarurl = wx.getStorageSync("avatarUrl");
+   if(account === ""){
+     common.showModal("账号不能为空！");
+   } else if(username === ""){
+     common.showModal("用户名不能为空！");
+   }else if(password === ""||passwordAgain === ""){
+     common.showModal("密码不能为空！");
+   }else if(password != passwordAgain){
+     common.showModal("两次输入密码不一致");
+   }else{
+     wx.showLoading({
+      title: '用户注册中，请稍后！',
+    });
+    var data={
+      username:username,
+      account:account,
+      authority:1,
+      password:password,
+      avatarurl:avatarurl
+    }
+    app.httpForm("user/userRegister",util.json2Form(data),"POST").then(res=>{
+      wx.hideLoading();
+      if(res.code === 1){
+        common.showTip("注册成功","success",function(){
+          wx.redirectTo({
+            url: "../logIn/logIn"
+          })
+        })
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

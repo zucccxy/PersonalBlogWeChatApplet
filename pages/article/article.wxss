@@ -89,12 +89,15 @@ page{
         background: #fff;
     }
 
-   .content view:active {
-       background: #f70;
+     .content view:active {
+        background: #f70;
         color: #fff;
     }
-
     .content span {
         opacity: 0.3;
         padding: 0 0 0 5px;
+    }
+     .content .active {
+        background: #f70;
+        color: #fff;
     }

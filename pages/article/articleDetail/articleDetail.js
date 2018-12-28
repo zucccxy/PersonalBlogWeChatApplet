@@ -1,18 +1,37 @@
 // pages/article/articleDetail/articleDetail.js
+const app = getApp()
+const common = require('../../../utils/common.js');
+const util = require('../../../utils/util.js');
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-    
+    articleDetail:{}
   },
-
+  getArticleDetail:function(articleId){
+    let that=this;
+    var data={
+      articleId:articleId
+    }
+    app.httpForm("article/articleDetail",data,"GET").then(res=>{
+      if(res.code === 1){
+        that.setData({
+          articleDetail:res.data.data
+        })
+        console.log(that.data.articleDetail);
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    this.getArticleDetail(parseInt(options.articleId));
+    
   },
 
   /**

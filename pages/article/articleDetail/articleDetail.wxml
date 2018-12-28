@@ -6,16 +6,17 @@
       <view class="header">
         <view class="header-cover no-cover">
           <view class="caption">
-            <view class="text-lg title">微信小程序</view>
+            <view class="text-lg title">{{articleDetail.title}}</view>
             <view class="time page__desc">发布时间:
-              <text>2018年12月10日</text>
+              <text>{{articleDetail.updateTime}}</text>
             </view>
           </view>
         </view>
       </view>
       <view class="article-section">
         <view class="article-content">
-          <text>测试文章</text>
+          
+          <wemark md="{{articleDetail.content}}" link highlight type="wemark" ></wemark>
         </view>
 
       </view>

@@ -11,8 +11,9 @@
     </swiper>
   </view>
   <view class="tag">
-    <view  wx:for="{{categoryList}}" class="content">
-      <view class="active">{{item.categoryName}}
+    <view  wx:for="{{categoryList}}" wx:key="categoryId" wx:for-index="idx"
+     class="content">
+      <view bindtap='categoryChoose' class="{{currentItemId === item.categoryId?'active':''}}" data-id="{{item.categoryId}}">{{item.categoryName}}
       </view>
       </view>
       <!-- <view>标签1</view>
@@ -21,16 +22,16 @@
   </view>
   <view class="line"></view>
   <view class="article">
-    <view class="article-item">
+    <view class="article-item" wx:for="{{articleList}}" wx:key="articleId" wx:for-index="idx">
       <!-- <view bindtap="enterDetail" class="article-list">
         <text  style="color:#000000">哈哈哈s</text>
       </view> -->
       <!-- 卡片 -->
-      <view class="article-list-li" bindtap="enterDetail">
-        <view class="article-list-title">这是没有图片的文章列表项的标题</view>
+      <view class="article-list-li"  data-id="{{item.articleId}}"bindtap="enterDetail">
+        <view class="article-list-title">{{item.title}}</view>
         <view class="article-list-content">
           <view class="article-list-desc">
-            <view class='article-list-text'>其实吧，做程序员也不都是枯燥乏味的，比如我吧，为了写段话在这里凑字数也是很开心的呀，嘻嘻嘻！求关注！持续更新组件...</view>
+            <view class='article-list-text'>{{item.expect}}</view>
             <!-- <view class="article-list-tag">
           <view class='badge warning round'># 严肃脸 #</view>
         </view> -->
@@ -39,15 +40,15 @@
         <view class="item-list-data">
           <image src="http://image.weilanwl.com/img/4x4.jpg" class='round'></image>
           <view class='item-list-author'>
-            <view class="item-list-name">文晓港
-              <text>/ 90后</text>
+            <view class="item-list-name">{{item.author}}
+              <!-- <text>/ 90后</text> -->
             </view>
             <view class="item-list-info">
-              <text class="iconfont icon-timefill"> 十天前</text>
+              <text class="iconfont icon-timefill">{{item.createTime}}</text>
               <view class="item-list-num">
-                <text class="iconfont icon-attentionfill"> 10</text>
-                <text class="iconfont icon-favorfill"> 20</text>
-                <text class="iconfont icon-messagefill"> 30</text>
+                <text class="iconfont icon-attentionfill">{{item.readCount}}</text>
+                <!-- <text class="iconfont icon-favorfill"> 20</text>
+                <text class="iconfont icon-messagefill"> 30</text> -->
               </view>
             </view>
           </view>
@@ -57,8 +58,12 @@
         <text style="color:#000000">哈哈哈s</text>
       </view> -->
     </view>
-    <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore weui-loadmore_line" hidden='{{hasmoreData}}'>
       <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载完</view>
+    </view>
+    <view class="weui-loadmore" hidden='{{hiddenloading}}'>
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
     </view>
   </view>
 </view>

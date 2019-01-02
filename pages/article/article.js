@@ -87,7 +87,7 @@ Page({
    */
   onLoad: function (options) {
   
-    this.getArticleList();
+    // this.getArticleList();
   },
 
   /**
@@ -102,6 +102,9 @@ Page({
    */
   onShow: function () {
     var that = this;
+    this.data.pageNo=1;
+    this.data.articleList=[];
+    this.getArticleList();
     app.httpForm("article/categoryList", {}, "GET").then(res => {
       if (res.code === 1) {
         res.data.dataList.unshift({

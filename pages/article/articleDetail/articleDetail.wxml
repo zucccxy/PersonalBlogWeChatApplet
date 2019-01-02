@@ -1,5 +1,4 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
-
 <view class="article">
   <view class="article-detail">
     <view class="article-detail-content">
@@ -10,64 +9,109 @@
             <view class="time page__desc">发布时间:
               <text>{{articleDetail.updateTime}}</text>
             </view>
+            <view style="margin-top:5%" class="article-tag">
+              <view wx:for="{{articleCategoryList}}" wx:key="categoryId" wx:for-index="idx" stlye="margin-top:3%" class="badge warning round {{idx === 0?'':'deviation'}}">#{{item.categoryName}}#</view>
+            </view>
           </view>
         </view>
       </view>
       <view class="article-section">
         <view class="article-content">
-          
-          <wemark md="{{articleDetail.content}}" link highlight type="wemark" ></wemark>
+          <wemark md="{{articleDetail.content}}" link highlight type="wemark"></wemark>
         </view>
-
       </view>
     </view>
 
   </view>
-  <view class="article-tail">
-    <view class="resp-input-cell">
-      <input class="resp-input" type="text" placeholder="说点什么吧..." bindinput="commentInput" />
-    </view>
-    <view class="like-btn">
-      <image class="like-btn-img" src="../../../image/collect.png" bindtap="changeImage"></image>
-      <!-- <image v-else class="like-btn-img" src="../../static/assets/no-collect.png" bindtap="changeImage"></image> -->
-    </view>
-    <button class="success btn resp-btn" type="primary" formType="submit">发送</button>
-  </view>
+  <block wx:if="{{userId}}">
+    <form bindsubmit="submitComment">
+      <view class="article-tail">
+        <view class="resp-input-cell">
+          <input class="resp-input" type="text" placeholder="说点什么吧..." name="commentContent" value="{{form_info}}"/>
+        </view>
+        <view class="like-btn">
+          <image wx:if="{{collect}}" class="like-btn-img" src="../../../image/collect.png" bindtap="hangdleCollect"></image>
+          <image wx:else class="like-btn-img" src="../../../image/no-collect.png" bindtap="hangdleCollect"></image>
+          <!-- <image v-else class="like-btn-img" src="../../static/assets/no-collect.png" bindtap="changeImage"></image> -->
+        </view>
+        <button class="success btn resp-btn" type="primary" formType="submit">发送</button>
+      </view>
+    </form>
+  </block>
+  <div wx:else class="need-login" bindtap="switchLogin ">点击此处登录，即可评论回复文章😆</div>
   <view style="padding: 20px 10px">
-    <view class="resp-head">全部评论(1)</view>
-    <view class="comment">
+    <view class="resp-head">全部评论({{commentCount}})</view>
+    <view wx:for="{{commentList}}" wx:key="commentId" wx:for-item="commentItem" wx:for-index="commentIds" class="comment">
       <view class="comment-info">
         <view class="comment-author">
           <view>
-            <image class="comment-author-icon" src="../../../image/kobe.png"></image>
+            <image class="comment-author-icon" src="{{commentItem.avatarurl}}"></image>
           </view>
           <view class="comment-author-info">
-            <view>陈星宇</view>
-            <view style="margin-top: 5px;">2018年12月10日</view>
+            <view>{{commentItem.username}}</view>
+            <view style="margin-top: 5px;">{{commentItem.createTime}}</view>
+          </view>
+        </view>
+        <view class="comment-author-position">
+          <view  wx:if="{{userId}}" class="comment-button">
+            <view data-repliedName="{{commentItem.username}}" data-commentId="{{commentItem.commentId}}" bindtap="handleReply">
+              <image src="../../../image/comment.png" style="width: 20px;height: 20px;"></image>
+            </view>
+            <text>回复</text>
+          </view>
+          <view class="comment-button">
+            <view data-commentId="{{commentItem.commentId}}" data-index="{{commentIds}}" bindtap="more">
+              <image src="../../../image/more-read.png" style="width: 20px;height: 20px;margin-left: 7px;"></image>
+            </view>
+            <text style="margin-left:5px">更多</text>
+          </view>
+        </view>
+      </view>
+      <view class="h2w h2w-light">
+        <view class="h2w__main">
+          <view class="h2w_p">
+            {{commentItem.commentContent}}
           </view>
         </view>
 
-        <view class="comment-author-position">
-          <view bindtap="reply">
-            <image src="../../../image/comment.png" style="width: 20px;height: 20px;margin-bottom: 7px;"></image>
-          </view>
-          <view>1楼</view>
-        </view>
       </view>
-      <view>
-        <view class="h2w h2w-light">
-          <view class="h2w__main">
-            <!--回复谁 -->
-            <view class="zan-c-red">@孙昭</view>
-            <!-- <view class="h2w__p" 
-            data-alpha="undefined" data-data="undefined" data-ename="undefined" data-href="undefined" data-id="undefined" data-name="undefined" data-src="undefined" data-url="undefined" id=""
-            > -->
-            <view class="h2w_p">
-              真香
+      <block wx:for="{{replayList[commentItem.commentId]}}" wx:for-item="replayItem" wx:key="replyId">
+        <view class="comment-info {{commentItem.isShow?'':'hide'}}" style="padding-left:10px">
+          <view class="comment-author">
+            <view>
+              <image class="comment-author-icon" src="../../../image/kobe.png"></image>
+            </view>
+            <view class="comment-author-info">
+              <view class="reply-text">
+                <view>{{replayItem.username}}</view>
+                <view style="margin-left:2px">回复</view>
+                <view style="margin-left:2px">{{replayItem.repliedName}}</view>
+              </view>
+              <view style="margin-top: 5px;">{{replayItem.createTime}}</view>
+            </view>
+          </view>
+          <view class="comment-author-position">
+            <view  wx:if="{{userId}}" class="comment-button">
+              <view data-repliedName="{{replayItem.username}}"  data-commentId="{{commentItem.commentId}}" bindtap="handleReply">
+                <image src="../../../image/comment.png" style="width: 20px;height: 20px;"></image>
+              </view>
+              <text>回复</text>
             </view>
           </view>
         </view>
-      </view>
+        <view style="margin-left:10px" class="h2w h2w-light {{commentItem.isShow?'':'hide'}}">
+          <view class="h2w__main">
+            <view class="h2w_p">
+              {{replayItem.replyContent}}
+            </view>
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 </view>
+
+<modal hidden="{{hiddenModal}}" title="回复" confirm-text="提交" cancel-text="取消" bindconfirm="modelConfirm" bindcancel="modelCancel">
+    <input placeholder='请输入回复' value="{{replayContent}}" bindinput="replayContentInput"/>
+    <view class="line"></view>
+</modal>

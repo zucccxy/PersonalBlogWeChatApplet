@@ -32,15 +32,13 @@
         <view class="article-list-content">
           <view class="article-list-desc">
             <view class='article-list-text'>{{item.expect}}</view>
-            <!-- <view class="article-list-tag">
-          <view class='badge warning round'># 严肃脸 #</view>
-        </view> -->
+    
           </view>
         </view>
         <view class="item-list-data">
-          <image src="http://image.weilanwl.com/img/4x4.jpg" class='round'></image>
+          <image src="{{item.adminPic}}" class='round'></image>
           <view class='item-list-author'>
-            <view class="item-list-name">{{item.author}}
+            <view class="item-list-name">{{item.adminName}}
               <!-- <text>/ 90后</text> -->
             </view>
             <view class="item-list-info">

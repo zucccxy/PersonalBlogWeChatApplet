@@ -28,6 +28,7 @@ Page({
    }else{
      wx.showLoading({
       title: '用户注册中，请稍后！',
+       mask: true 
     });
     var data={
       username:username,

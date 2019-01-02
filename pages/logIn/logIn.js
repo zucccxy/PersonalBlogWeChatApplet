@@ -19,6 +19,7 @@ Page({
     }
     wx.showLoading({
       title: '用户登录中，请稍后！',
+      mask: true 
     });
     app.httpForm("user/userLogIn", util.json2Form(data),"POST").then(res=>{
       wx.hideLoading();

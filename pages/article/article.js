@@ -2,8 +2,8 @@
 const app = getApp()
 const common = require('../../utils/common.js');
 const util = require('../../utils/util.js');
+const timeago = require('../../miniprogram_npm/timeago.js/index.js')
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -68,6 +68,8 @@ Page({
       if (res.code === 1) {
         let resultList=res.data.dataList;
         resultList.forEach(function(item){
+          item.createTime = timeago.format(item.createTime, "zh_CN");
+          item.createTime = item.createTime.replace(/\s+/g, "");
           that.data.articleList.push(item)
           })
         that.setData({
@@ -75,8 +77,6 @@ Page({
           totalCount: res.data.totalCount,
           hiddenloading: true
         });
-    
-     
       } else {
         common.showModal(res.message, "提示");
       }

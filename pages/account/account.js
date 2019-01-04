@@ -2,15 +2,19 @@
 const app=getApp()
 const common = require('../../utils/common.js');
 const util = require('../../utils/util.js');
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    islogin:false,
+    islogin:false,//判断是否登录
+    isSign:false,//判断是否签到
 avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1tHibiaCkiaSOH5BpTOSybBQbKOR7zd8HNiczQkialNLktfkWoaA8XPArkA/132",
     username:"游客",
-    signCountTime:0
+    signCountTime:0,
+    signTime:"",
+    
   },
   enterMyNews:function(event){
     wx.navigateTo({
@@ -48,9 +52,62 @@ avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1t
       wx.navigateTo({
         url: '/pages/logIn/logIn',
       })
+     }else{
+       common.showModal(res.message, "提示");
      }
     })
-   
+  },
+  userSign:function(event){
+    let userId=wx.getStorageSync("userId");
+    let that=this;
+    let signTime = util.formatTime(new Date())
+    let data={
+      signTime: signTime,
+      userId:userId
+    }
+    app.httpForm("user/addSign",data,"POST").then(res=>{
+      if(res.code === 1){
+            that.setData({
+              signTime:signTime,
+              isSign:true 
+            })
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  },
+  getUserSignCount:function(){
+    let that = this;
+    let userId=wx.getStorageSync("userId");
+    let data={
+      userId: userId
+    }
+    app.httpForm("user/countSign",data,"GET").then(res=>{
+      if(res.code === 1){
+        that.setData({
+          signCountTime: res.data.dataCount,
+        })
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  },
+  getIsSign:function(){
+    let userId=wx.getStorageSync("userId");
+    let that=this;
+    let data={
+        userId:userId
+    }
+    app.httpForm("user/getIsSign",data,"GET").then(res=>{
+      if(res.code === 1){
+         that.setData({
+           isSign:!res.data.dataResult,
+           signTime:res.data.dataList[0].signTime
+         })
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -79,6 +136,10 @@ avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1t
       this.setData({
         avatarUrl: url
       })
+    if(this.data.islogin){
+    this.getUserSignCount();
+      this.getIsSign();
+    }
   },
 
   /**

@@ -1,0 +1,22 @@
+{
+  "name": "personalblogwechatapplet",
+  "version": "1.0.0",
+  "description": "个人博客微信小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zucccxy/PersonalBlogWeChatApplet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zucccxy/PersonalBlogWeChatApplet/issues"
+  },
+  "homepage": "https://github.com/zucccxy/PersonalBlogWeChatApplet#readme",
+  "dependencies": {
+    "timeago.js": "^4.0.0-beta.2"
+  }
+}

@@ -11,7 +11,8 @@
     "pages/account/account",
     "pages/account/collection/collection",
     "pages/account/news/news",
-    "pages/account/feedback/feedback"
+    "pages/account/feedback/feedback",
+    "pages/account/editAccount/editAccount"
   ],
   "window": {
     "backgroundTextStyle": "light",

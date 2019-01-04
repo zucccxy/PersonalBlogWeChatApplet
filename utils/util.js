@@ -6,7 +6,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -22,6 +22,7 @@ function json2Form(json) {
 }
 module.exports = {
   json2Form: json2Form,
+  formatTime: formatTime
 }
 // module.exports = {
 //   formatTime: formatTime

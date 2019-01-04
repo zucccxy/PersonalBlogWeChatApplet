@@ -73,14 +73,26 @@
     </view>
   </view>
   <view class="line"></view>
+  <block wx:if="{{isSign}}">
   <view class="sign-image">
-    <button class='success btn ml-sm iconfont icon-locationfill'>
+         <image class="ml-sm success-image" src="../../image/success.png"> </image>
+      </view>
+    <!-- </button> -->
+  <view class="sign-time">
+    <text class="sign-time-center" style="margin-left:25%">今日签到时间: {{signTime}}</text>
+  </view>
+  </block>
+  <block wx:else>
+  <view class="sign-image">
+    <button bindtap="userSign"class='success btn ml-sm iconfont icon-locationfill'>
     </button>
   </view>
   <view class="sign-time">
-    <text class="sign-time-center">点击按钮进行签到</text>
+    <text class="sign-time-center" >点击按钮进行签到</text>
   </view>
-</view>
+</block>
+  </view>
+<!-- </view> -->
  </block>
   <block wx:else>
    <view class="noLogin">

@@ -1,14 +1,15 @@
 <!--pages/account/collection/collection.wxml-->
 <view class="bigline"></view>
-<view class="goods-list-li">
+<view class="goods-list-li" wx:for="{{collectionList}}"
+wx:key="collectionId">
   <view class='goods-list-main'>
     <image mode='aspectFit' src='../../../image/article.png' mode='aspectFill' class='goods-list-img'></image>
     <view class='goods-list-text'>
       <view class='goods-list-top'>
-        <view class='gray-text'>文章收藏 1月前</view>
-        <view class='text-lg'>测试文章1</view>
+        <view class='gray-text'>文章收藏 {{item.createTime}}</view>
+        <view class='text-lg'>{{item.title}}</view>
       </view>
-      <view class='goods-list-foot'>
+      <view data-id="{{item.articleId}}"bindtap="enterArticleDetail" class='goods-list-foot'>
         <view class='gray-text'>点击查看</view>
       </view>
     </view>

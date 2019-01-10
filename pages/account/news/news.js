@@ -1,13 +1,47 @@
 // pages/account/news/news.js
+const app = getApp();
+const common = require('../../../utils/common.js');
+const util = require('../../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    newsList:[]
   },
-
+  getNewsList:function(){
+    let data={
+      userId: wx.getStorageSync("userId")
+    }
+    let that=this;
+    app.httpForm("user/getNewsList",data,"GET").then(res=>{
+      if(res.code === 1){
+       that.setData({
+         newsList: res.data.dataList
+       })
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  },
+  updateNewsStatus:function(){
+    let data={
+      userId:wx.getStorageSync("userId")
+    }
+    app.httpForm("user/updateNewsStatus",data,"POST").then(res=>{
+      if(res.code === 1){
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
+  },
+  enterArticleDetial:function(e){
+    let id = e.currentTarget.dataset.id;
+    console.log(id);
+    wx.redirectTo({
+      url: '/pages/article/articleDetail/articleDetail?articleId=' + id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,7 +60,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.updateNewsStatus();
+    this.getNewsList();
   },
 
   /**

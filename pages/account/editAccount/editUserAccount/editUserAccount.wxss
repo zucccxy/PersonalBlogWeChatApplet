@@ -1,0 +1,4 @@
+/* pages/account/editAccount/editUserAccount/editUserAccount.wxss */
+page {
+  background: #f1f1f1;
+}

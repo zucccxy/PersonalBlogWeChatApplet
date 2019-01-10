@@ -1,18 +1,23 @@
 <!--pages/account/news/news.wxml-->
 <view class="bigline"></view>
-<view class="goods-list-li">
+<!-- <view  wx:for="{{newsList}}" wx:key="newsId" class="goods-list-li">
   <view class='goods-list-main'>
-    <!-- <image mode='aspectFit' src='../../../image/article.png' mode='aspectFill' class='goods-list-img'></image>
-    <view class='goods-list-text'>
-      <view class='goods-list-top'>
-        <view class='gray-text'>文章收藏 1月前</view>
-        <view class='text-lg'>测试文章1</view>
+       <view class='text-lg danger-text'>{{item.newsContent}}</view>
       </view>
-      <view class='goods-list-foot'>
-        <view class='gray-text'>点击查看</view>
-      </view> -->
-    <!-- </view> -->
-       <view class='text-lg danger-text'>您在测试文章1中的评论已经被删除！</view>
-      </view>
-  <view class="bigline"></view>
+      <view class="list-btn">
+      <button class='primary btn'>
+        <text class='iconfont icon-yinsi'></text> 按钮</button>
+    </view>
 </view>
+ <view class="bigline"></view> -->
+ <view class="list-box">
+  <view wx:for="{{newsList}}" wx:key="newsId"  url="" hover-class="none" class="list-li">
+    <view class="list-text">
+      <view class=" primary-text"></view>{{item.newsContent}} 
+    </view>
+    <view class="list-btn">
+      <button data-id="{{item.articleId}}" bindtap="enterArticleDetial" class='primary btn'>
+        <text class='iconfont icon-yinsi'></text> 查看</button> 
+    </view>
+  </view>
+  </view>

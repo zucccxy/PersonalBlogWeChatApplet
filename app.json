@@ -12,7 +12,10 @@
     "pages/account/collection/collection",
     "pages/account/news/news",
     "pages/account/feedback/feedback",
-    "pages/account/editAccount/editAccount"
+    "pages/account/editAccount/editAccount",
+   "pages/account/editAccount/editUsername/editUsername",
+    "pages/account/editAccount/editUserAccount/editUserAccount",
+    "pages/account/editAccount/editUserPassword/editUserPassword"
   ],
   "window": {
     "backgroundTextStyle": "light",

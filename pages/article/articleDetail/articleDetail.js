@@ -268,10 +268,25 @@ Page({
           common.showTip("评论成功", "success");
           that.setData({ hiddenModal: true });
           that.getReplayList();
+        let newsContent = app.globalData.username + "在《" + that.data.articleDetail["title"] +"》中回复了您，请查看!"; 
+        that.sendNews(newsContent,that.data.repliedName);
       }else{
-        common.showModal(res.message, "提示") 
+        common.showModal(res.message, "提示");
       }
     }) 
+  },
+  sendNews:function(newsContent,repliedName){
+       let data={
+         articleId: this.data.articleDetail["articleId"],
+         newsContent: newsContent,
+         repliedName: repliedName
+       }
+    app.httpForm("article/addNews",data,"POST").then(res=>{
+      if(res.code === 1){
+      }else{
+        common.showModal(res.message, "提示");
+      }
+    })
   },
   replayContentInput:function(e){
     this.data.replayContent=e.detail.value;

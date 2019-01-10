@@ -1,0 +1,13 @@
+<!--pages/account/editAccount/editUserAccount/editUserAccount.wxml-->
+<form>
+<view style="margin-top: 10px"class='form-box'>
+    <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">用户账号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input maxlength="30" class="weui-input" placeholder="请输入用户账号" focus="true" confirm-type="done" bindconfirm="submitAccount" value="{{userAccount}}"/>
+                </view>
+            </view>
+</view>
+</form>

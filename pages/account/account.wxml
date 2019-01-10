@@ -1,18 +1,4 @@
 <!--pages/account/account.wxml-->
-<!-- <view class="userInfo"> -->
-  <!-- <view class="userInfo-avatar" style="flex:1">
-    <image class="avatarUrl " src="../../image/kobe.png"></image>
-  </view>
-  <view class="userInfo-message " style="flex:1"> -->
-    <!-- <view class="userInfo-message-name">
-      <text>Kim</text>
-    </view>
-    <view class="userInfo-message-signtime">
-      <text>已签到1天</text>
-    </view>
-   -->
-  <!-- </view>
-</view> -->
 <view class="user" style='margin-bottom: 0rpx'>
  <view class="user-top">
     <view class="user-img">
@@ -28,7 +14,7 @@
       </view>
        
       <view class="user-sub cf">
-        <navigator  hidden="{{!islogin}}" hover-class='none' class='gray btn xs round'>编辑资料</navigator>
+        <navigator  hidden="{{!islogin}}" hover-class='none' class='gray btn xs round' url="/pages/account/editAccount/editAccount">编辑资料</navigator>
         <!-- <navigator hover-class='none' class='fr'>
           <text class='iconfont icon-qrcode'></text> 个人名片</navigator> -->
       </view>
@@ -46,7 +32,7 @@
         <image src="../../image/my.png"></image>
       </view>
       <text>我的消息</text>
-           <view class="weui-badge" style="margin-left: 5px;">8</view>
+           <view wx:if="{{NewsBool}}"class="weui-badge" style="margin-left: 5px;">{{NewsCount}}</view>
     </view>
   </view>
   <view class="line"></view>

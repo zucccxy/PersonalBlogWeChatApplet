@@ -1,10 +1,16 @@
 // pages/account/editAccount/editAccount.js
+const app = getApp()
+const common = require('../../../utils/common.js');
+const util = require('../../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    avatarsrc:"",
+    username:"",
+    userAccount:"",
 
   },
 
@@ -12,7 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -26,7 +31,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      avatarsrc:wx.getStorageSync("avatarUrl"),
+      username: app.globalData.username,
+      userAccount:wx.getStorageSync("userAccount"),
+    })
   },
 
   /**

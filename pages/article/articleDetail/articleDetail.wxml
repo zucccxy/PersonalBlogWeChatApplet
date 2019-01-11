@@ -1,6 +1,11 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
 <view class="article">
-  <view class="article-detail">
+<view hidden="{{loading}}" class="noData">
+ <view class='loading-ing'>
+    <text class='iconfont icon-loading iconfont-spin'></text> 加载中...
+  </view>
+  </view>
+  <view class="article-detail shadow">
     <view class="article-detail-content">
       <view class="header">
         <view class="header-cover no-cover">
@@ -38,10 +43,10 @@
       </view>
     </form>
   </block>
-  <div wx:else class="need-login" bindtap="switchLogin ">点击此处登录，即可评论回复文章😆</div>
+  <div wx:else class="need-login" bindtap="switchLogin">点击此处登录，即可评论回复文章😆</div>
   <view style="padding: 20px 10px">
     <view class="resp-head">全部评论({{commentCount}})</view>
-    <view wx:for="{{commentList}}" wx:key="commentId" wx:for-item="commentItem" wx:for-index="commentIds" class="comment">
+    <view wx:for="{{commentList}}" wx:key="commentId" wx:for-item="commentItem" wx:for-index="commentIds" class="comment shadow">
       <view class="comment-info">
         <view class="comment-author">
           <view>

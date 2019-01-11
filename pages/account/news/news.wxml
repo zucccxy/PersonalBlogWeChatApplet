@@ -10,8 +10,8 @@
     </view>
 </view>
  <view class="bigline"></view> -->
- <view class="list-box">
-  <view wx:for="{{newsList}}" wx:key="newsId"  url="" hover-class="none" class="list-li">
+ <view  wx:if="{{newsList.length !== 0}}"class="shadow list-box">
+  <view data-id="{{item.newsId}}"bindlongpress="deleteItem" wx:for="{{newsList}}" wx:key="newsId"  url="" hover-class="none" class="list-li">
     <view class="list-text">
       <view class=" primary-text"></view>{{item.newsContent}} 
     </view>
@@ -21,3 +21,8 @@
     </view>
   </view>
   </view>
+    <view class="noData" wx-if="{{newsList.length === 0}}">
+    <div class="weui-loadmore weui-loadmore_line">
+                    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无消息</view>
+                </div>
+      </view>

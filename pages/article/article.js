@@ -30,14 +30,26 @@ Page({
     pageNo:1,
     pageSize:3,
     totalCount:0,
+    // style:"shadow",
   },
+  // //触发改变样式
+  // changeStyle:function(){
+  //   console.log("触发了吗")
+  //   this.setData({
+  //     style: "shadow-large"
+  //   })
+  // },
+  //进入详情界面
   enterDetail: function (options){
     var id = options.currentTarget.dataset.id;
-    console.log(id);
+    // this.setData({
+    //   style: "shadow"
+    // })
     wx.navigateTo({
       url: '/pages/article/articleDetail/articleDetail?articleId='+id,
     })
   },
+  //根据标签筛选文章
   categoryChoose:function(options){
    var id=options.currentTarget.dataset.id;
     this.data.selectedCategory={
@@ -53,6 +65,7 @@ Page({
   this.data.articleList=[];
   this.getArticleList();
   },
+  //获取文章列表
   getArticleList: function(){
     let  that=this;
     that.setData({

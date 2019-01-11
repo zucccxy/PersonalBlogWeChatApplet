@@ -1,6 +1,6 @@
 <!--pages/account/collection/collection.wxml-->
 <view class="bigline"></view>
-<view class="goods-list-li" wx:for="{{collectionList}}"
+<view wx:if="{{collectionList.length !== 0}}"class="goods-list-li shadow" wx:for="{{collectionList}}"
 wx:key="collectionId">
   <view class='goods-list-main'>
     <image mode='aspectFit' src='../../../image/article.png' mode='aspectFill' class='goods-list-img'></image>
@@ -16,4 +16,9 @@ wx:key="collectionId">
   </view>
   <view class="bigline"></view>
 </view>
+  <view class="noData" wx-if="{{collectionList.length === 0}}">
+    <div class="weui-loadmore weui-loadmore_line">
+                    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无收藏</view>
+                </div>
+      </view>
 

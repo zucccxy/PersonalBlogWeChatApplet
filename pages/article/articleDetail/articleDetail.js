@@ -20,7 +20,32 @@ Page({
     hiddenModal: true,
     replayContent:"",
     repliedName:"",
+    isTalk:true,
+    loading:false
   },
+  //获取用户信息（获取用户权限，判断用户是否有发言权限
+   getUser:function(){
+    let data={
+       userId:this.data.userId
+    }
+    let that=this;
+     app.httpForm("user/getUser",data,"GET").then(res=>{
+       if(res.code === 1){
+         if (res.data.dataResult.authority === 1){
+           that.setData({
+             isTalk:true
+           })
+         }
+         else{
+           that.setData({
+             isTalk:false
+           })
+         }
+       }else{
+         common.showModal(res.message, "提示");
+       }
+     })
+   },
   //获取文章信息
   getArticleDetail: function(articleId) {
     let that = this;
@@ -38,6 +63,9 @@ Page({
       if (res.code === 1) {
         that.setData({
           articleDetail: res.data.data
+        })
+        that.setData({
+          loading:true
         })
         this.getarticleCategoryList(data);
         this.getArticleCount(data);
@@ -210,7 +238,11 @@ Page({
   submitComment:function(event){
     if (!event.detail.value.commentContent) {
       common.showModal("请输入内容！", "提示") 
-      return false;
+      return;
+    }
+    if (this.data.isTalk === false){
+      common.showModal("您已被禁言，无法发表评论！","提示");
+      return ;
     }
     let that=this;
     let data={
@@ -247,6 +279,11 @@ Page({
   },
   //处理回复
   modelConfirm:function(){
+    if(this.data.isTalk === false){
+      common.showModal("您已被禁言，无法发表评论！", "提示");
+      this.setData({ hiddenModal: true })
+      return ;
+    }
     let that=this;
     if (!this.data.replayContent) {
       common.showModal("请输入内容！", "提示")
@@ -275,6 +312,7 @@ Page({
       }
     }) 
   },
+  //发送消息
   sendNews:function(newsContent,repliedName){
        let data={
          articleId: this.data.articleDetail["articleId"],
@@ -298,12 +336,14 @@ Page({
     this.setData({
         userId: wx.getStorageSync("userId")
         });
+
     this.data.articleId =parseInt(options.articleId);
     this.getArticleDetail(parseInt(options.articleId));
     this.addReadCount(parseInt(options.articleId));
     //只有用户登录时触发
     if (this.data.userId) {
     this.getIsCollect(options.articleId);
+    this.getUser();
     }
   },
 

@@ -1,5 +1,5 @@
 <!--pages/account/account.wxml-->
-<view class="user" style='margin-bottom: 0rpx'>
+<view class="shadow user" style='margin-bottom: 0rpx;'>
  <view class="user-top">
     <view class="user-img">
       <image src="{{avatarUrl}}" class='radius'></image>
@@ -25,7 +25,7 @@
   </view>
 <view class="bigline"></view>
  <block wx:if="{{islogin}}">
-<view class="my">
+<view class="shadow my">
   <view bindtap="enterMyNews" class="list-li">
     <view class='list-tx'>
       <view class='list-tx-img'>
@@ -46,7 +46,7 @@
   </view>
 </view>
 <view class="bigline"></view>
-<view class="sign">
+<view class="shadow sign">
   <!-- <view class="sign-icon">
     <text>图标</text>
   </view> -->
@@ -81,13 +81,13 @@
 <!-- </view> -->
  </block>
   <block wx:else>
-   <view class="noLogin">
+   <view class="shadow noLogin">
    <view class="text-xxl" style="margin-top: 50px">更多功能请登陆之后查看</view>
    <button  bindtap="enterLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px">点击登录</button>
    </view>
   </block>
 <view class="bigline"></view>
-<view class="other">
+<view class="shadow other">
   <!-- <view class="other-icon">
     <text>图标</text>
   </view> -->
@@ -116,5 +116,5 @@
   <view  hidden="{{!islogin}}" class="LogOut">
        <button  bindtap="backLogIn" class="primary btn" style="margin-top: 10px;margin-bottom: 10px;">退出登录</button>
     </view>
-
+<view class="bigline"></view>
 </view>

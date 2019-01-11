@@ -1,6 +1,6 @@
 <!--pages/account/editAccount/editUsername/editUsername.wxml-->
 <form>
-<view style="margin-top: 10px"class='form-box'>
+<view style="margin-top: 10px"class='form-box shadow'>
     <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">用户名</view>

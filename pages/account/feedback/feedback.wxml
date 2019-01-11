@@ -1,7 +1,7 @@
 <!--pages/account/feedback/feedback.wxml-->
 
 <form bindsubmit='formSubmit' bindreset='formReset'> 
-<view class='form-box'>
+<view class='shadow form-box'>
     <view class='form-item'>
       <view class='form-title'>
         联系方式:

@@ -27,7 +27,7 @@
         <text  style="color:#000000">哈哈哈s</text>
       </view> -->
       <!-- 卡片 -->
-      <view class="article-list-li"  data-id="{{item.articleId}}"bindtap="enterDetail">
+      <view  class="shadow article-list-li shadow"  data-id="{{item.articleId}}"   bindtap="enterDetail">
         <view class="article-list-title">{{item.title}}</view>
         <view class="article-list-content">
           <view class="article-list-desc">

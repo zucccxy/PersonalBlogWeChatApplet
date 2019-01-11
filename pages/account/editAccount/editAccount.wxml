@@ -1,11 +1,11 @@
 <!--pages/account/editAccount/editAccount.wxml-->
 <form>
-  <view class="form-box form-avatar-box">
+  <view class="shadow form-box form-avatar-box">
     <view class="form-avatar" bindtap="uploadPhoto" style='background-image:url({{avatarsrc}})'>
       <!-- <text>修改/上传</text> -->
     </view>
   </view>
-  <view class='form-box'>
+  <view class='shadow form-box'>
     <view class="weui-cells weui-cells_after-title">
       <navigator url="/pages/account/editAccount/editUsername/editUsername" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__bd">用户名</view>

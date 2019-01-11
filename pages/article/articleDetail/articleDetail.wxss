@@ -82,6 +82,12 @@
   align-items: center;
   border-top: 0.5px solid #dfdfdf;
 }
+  
+.article-content {
+  padding: 5px 20px 20px 20px;
+  font-size: 20px;
+  background: #fff;
+}
 
 .resp-input-cell {
   width: 84%;
@@ -244,11 +250,13 @@
   align-items: center;
   color: #999;
 }
-.line{
+
+.line {
   background-color: lightgray;
   height: 1px;
   width: 100%;
 }
+
 page {
   background: #eee;
 }

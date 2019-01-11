@@ -42,6 +42,28 @@ Page({
       url: '/pages/article/articleDetail/articleDetail?articleId=' + id,
     })
   },
+  deleteItem:function(e){
+    let that=this;
+    let id=e.currentTarget.dataset.id;
+    wx.showModal({
+      title: "提示",
+      content: '确认要删除改消息记录吗？',
+      success(res){
+        let data={
+          newsId:id
+        }
+        if(res.confirm){
+          app.httpForm("user/deleteNew", data, "POST").then(res => {
+            if (res.code === 1) {
+              that.getNewsList();
+            } else {
+              common.showModal(res.message, "提示");
+            }
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

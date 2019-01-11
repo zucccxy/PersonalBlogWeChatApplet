@@ -113,8 +113,12 @@ avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/YOuw0zia8s4pk7yz4XXqIkyQAlyzDzib8m1t
       if(res.code === 1){
          that.setData({
            isSign:!res.data.dataResult,
-           signTime:res.data.dataList[0].signTime
          })
+         if(res.data.dataList.length != 0){
+           that.setData({
+             signTime: res.data.dataList[0].signTime
+           }) 
+         }
       }else{
         common.showModal(res.message, "提示");
       }

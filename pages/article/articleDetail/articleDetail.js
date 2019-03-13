@@ -1,4 +1,4 @@
-// pages/article/articleDetail/articleDetail.js
+
 const app = getApp()
 const common = require('../../../utils/common.js');
 const util = require('../../../utils/util.js');

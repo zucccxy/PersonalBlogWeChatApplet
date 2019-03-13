@@ -1,8 +1,10 @@
 /* pages/register/register.wxss */
-page{
+
+page {
   background: #eee;
 }
-.row{
+
+.row {
   margin-top: 20rpx;
   overflow: hidden;
   line-height: 100rpx;
@@ -11,49 +13,54 @@ page{
   margin-right: 20rpx;
   color: #777;
   background: #fff;
- 
 }
-.info-input{
+
+.info-input {
   height: 100rpx;
   margin-left: 50rpx;
   color: #777;
-    float: left;
+  float: left;
 }
-.info-input1{
+
+.info-input1 {
   height: 100rpx;
   margin-left: 50rpx;
   color: #777;
-    float: left;
-    width: 420rpx;
+  float: left;
+  width: 450rpx;
 }
-.button{
+
+.button {
   width: 200rpx;
   height: 70rpx;
   line-height: 70rpx;
   font-size: 28rpx;
-  background: #33FF99;
+  background: #3f9;
   float: left;
   margin-left: 10rpx;
   margin-top: 15rpx;
-  color: #FFFFFF;
+  color: #fff;
 }
-.submit{
+
+.submit {
   margin-top: 50rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  background: #00CCFF;
-   color: #FFFFFF;
+  background: #09f;
+  color: #fff;
 }
-.success{
-  background: #ffffff;
- 
+
+.success {
+  background: #fff;
 }
-.cheer{
+
+.cheer {
   text-align: center;
   line-height: 400rpx;
   font-size: 60rpx;
   position: relative;
 }
-.return{
+
+.return {
   margin: 20rpx;
 }

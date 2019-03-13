@@ -40,7 +40,8 @@ App({
     })
   },
   httpJSON: function(url, data, method) { //封装http请求
-    const apiUrl = "http://localhost:12080/api/";
+    const apiUrl = "https://www.cxyfinalwork.top/api/";
+ 
     return new Promise((resolve, reject) => {
       wx.request({
         url: apiUrl + url,
@@ -65,7 +66,7 @@ App({
             }
           else{
               wx.request({
-              url: 'http://localhost:12080/api/user/userLogIn',
+                url: 'https://www.cxyfinalwork.top/api/user/userLogIn',
               data: "userAccount=" + userAccount + "&userPwd=" + userPwd,
               header: getApp().globalData2.header,
               method: method,
@@ -104,7 +105,7 @@ App({
     })
   },
   httpForm: function(url, data, method) { //封装http请求
-    const apiUrl = 'http://localhost:12080/api/' //请求域名
+    const apiUrl = 'https://www.cxyfinalwork.top/api/' //请求域名
     console.log("post")
 
     return new Promise((resolve, reject) => {
@@ -131,7 +132,7 @@ App({
             }
             else{
             wx.request({
-              url: 'http://localhost:12080/api/user/userLogIn',
+              url: 'https://www.cxyfinalwork.top/api/user/userLogIn',
               data: "userAccount=" + userAccount + "&userPwd=" + userPwd,
               header: getApp().globalData2.header,
               method: method,

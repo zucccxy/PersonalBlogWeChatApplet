@@ -14,6 +14,8 @@ Page({
     let newUsername=e.detail.value;
     if(this.data.username === newUsername){
       common.showModal("用户名不能跟之前相同，请修改！", "提示");
+    } else if (newUsername.length < 3) {
+      common.showModal("用户名长度必须在3-20个字符之间");
     }else{
       let data={
         userId:wx.getStorageSync('userId'),

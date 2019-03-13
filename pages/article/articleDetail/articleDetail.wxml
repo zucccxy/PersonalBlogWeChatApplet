@@ -1,10 +1,10 @@
 <!--pages/article/articleDetail/articleDetail.wxml-->
-<view class="article">
 <view hidden="{{loading}}" class="noData">
  <view class='loading-ing'>
     <text class='iconfont icon-loading iconfont-spin'></text> 加载中...
   </view>
   </view>
+<view wx:if="{{loading}}"class="article">
   <view class="article-detail shadow">
     <view class="article-detail-content">
       <view class="header">
@@ -39,13 +39,16 @@
           <image wx:else class="like-btn-img" src="../../../image/no-collect.png" bindtap="hangdleCollect"></image>
           <!-- <image v-else class="like-btn-img" src="../../static/assets/no-collect.png" bindtap="changeImage"></image> -->
         </view>
-        <button class="success btn resp-btn" type="primary" formType="submit">发送</button>
+        <button class="success btn resp-btn" type="primary" formType="submit" style=" background: #0099FF">发送</button>
       </view>
     </form>
   </block>
   <div wx:else class="need-login" bindtap="switchLogin">点击此处登录，即可评论回复文章😆</div>
   <view style="padding: 20px 10px">
     <view class="resp-head">全部评论({{commentCount}})</view>
+    <view wx:if="{{commentList.length === 0}}" class="noData" style="color: #ff6a6a">
+    暂无评论
+    </view>
     <view wx:for="{{commentList}}" wx:key="commentId" wx:for-item="commentItem" wx:for-index="commentIds" class="comment shadow">
       <view class="comment-info">
         <view class="comment-author">
@@ -84,7 +87,7 @@
         <view class="comment-info {{commentItem.isShow?'':'hide'}}" style="padding-left:10px">
           <view class="comment-author">
             <view>
-              <image class="comment-author-icon" src="../../../image/kobe.png"></image>
+              <image class="comment-author-icon" src="{{replayItem.avatarurl}}"></image>
             </view>
             <view class="comment-author-info">
               <view class="reply-text">

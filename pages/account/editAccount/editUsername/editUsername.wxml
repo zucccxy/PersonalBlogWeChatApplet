@@ -6,7 +6,7 @@
                     <view class="weui-label">用户名</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input maxlength="30" class="weui-input" placeholder="请输入用户名" focus="true" confirm-type="done" bindconfirm="submitUsername" value="{{username}}"/>
+                    <input maxlength="20" class="weui-input" placeholder="请输入用户名" focus="true" confirm-type="done" bindconfirm="submitUsername" value="{{username}}"/>
                 </view>
             </view>
 </view>

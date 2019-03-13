@@ -1,0 +1,59 @@
+<!--pages/share/shareDetail/shareDetail.wxml-->
+ <view hidden="{{loading}}" class="noData">
+      <view class='loading-ing'>
+        <text class='iconfont icon-loading iconfont-spin'></text> 加载中...
+      </view>
+    </view>
+<view wx:if="{{loading}}" class="share_detail">
+  <view class="share_detail_content shadow">
+    <view class="article-list-li">
+      <view class="article-list-title">{{movie.title}} {{movie.attrs.year[0]}}</view>
+      <view class="line"></view>
+      <view style="margin-top:10px">
+        <view class="share_detail_item">
+          <view class="iconfont icon-record"></view>
+          <view style="margin-left:10px" class="text-lg">导演：{{movie.attrs.director}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-edit"></view>
+          <view style="margin-left:10px" class="text-lg">编剧:{{movie.attrs.writer}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-myfill"></view>
+          <view style="margin-left:10px" class="text-lg">主演:{{movie.attrs.cast}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-sort"></view>
+          <view style="margin-left:10px" class="text-lg">电影类型：{{movie.attrs.movie_type}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-favorfill"></view>
+          <view style="margin-left:10px" class="text-lg">国家：{{movie.attrs.country}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-global"></view>
+          <view style="margin-left:10px" class="text-lg">语言：{{movie.attrs.language}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-calendar"></view>
+          <view style="margin-left:10px" class="text-lg">上映时间：{{movie.attrs.pubdate}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-time"></view>
+          <view style="margin-left:10px" class="text-lg">片长：{{movie.attrs.movie_duration}}</view>
+        </view>
+        <view class="share_detail_item">
+          <view class="iconfont icon-tagfill"></view>
+          <view style="margin-left:10px" class="text-lg">又名：{{movie.alt_title}}</view>
+        </view>
+      </view>
+      <view class="share_detail_summary">
+        <view class="article-list-title">电影简介</view>
+        <view class="line"></view>
+        <view class="share_detail_summary_content">
+          <text decode="{{true}}">&nbsp; &nbsp; {{movie.summary}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

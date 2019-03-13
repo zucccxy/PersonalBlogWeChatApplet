@@ -2,6 +2,7 @@
 const app=getApp();
 const common = require('../../utils/common.js');
 const util = require('../../utils/util.js');
+const wxValidate=require('../../utils/WxValidate.js');
 Page({
 
   /**
@@ -16,13 +17,21 @@ Page({
    var username=event.detail.value.username;
    var password=event.detail.value.password;
    var passwordAgain=event.detail.value.passwordAgain;
-    var avatarurl = wx.getStorageSync("avatarUrl");
+   var avatarurl = wx.getStorageSync("avatarUrl"); 
    if(account === ""){
      common.showModal("账号不能为空！");
    } else if(username === ""){
      common.showModal("用户名不能为空！");
    }else if(password === ""||passwordAgain === ""){
      common.showModal("密码不能为空！");
+   }else if(account.length<3){
+     common.showModal("账号长度必须在3-20个字符之间");
+   } else if (username.length < 3) {
+     common.showModal("用户名长度必须在3-20个字符之间");
+   } else if (password.length < 3) {
+     common.showModal("密码长度必须在3-20个字符之间");
+   } else if (passwordAgain.length < 3) {
+     common.showModal("密码长度必须在3-20个字符之间");
    }else if(password != passwordAgain){
      common.showModal("两次输入密码不一致");
    }else{

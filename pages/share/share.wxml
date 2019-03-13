@@ -1,0 +1,25 @@
+<!--pages/share/share.wxml-->
+<view class="share">
+  <view class="summary">
+    <text class="summary_style">这里给大家分享下豆瓣上TOP10的电影!</text>
+  </view>
+  <view class="line"></view>
+  <view class="share_content">
+    <view hidden="{{loading}}" class="noData">
+      <view class='loading-ing'>
+        <text class='iconfont icon-loading iconfont-spin'></text> 加载中...
+      </view>
+    </view>
+    <view class="share_content_item">
+      <view class="case-list-li  " wx:for="{{movieList}}" wx:key="id" style="padding:0 0" bindtap="enterMovieDetail" data-name="{{item.title}}" data-id="{{item.id}}">
+        <view class="case-list-img shadow">
+          <image src="{{item.images.small}}" mode="widthFix"></image>
+          <view class="case-list-title" style="background: rgba(0, 0, 0, 0.5);">{{item.title}} | {{item.rating.average}}</view>
+        </view>
+      </view>
+    </view>
+     <view class="weui-loadmore weui-loadmore_line" hidden='{{hasmoreData}}'>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载完</view>
+    </view>
+  </view>
+</view>

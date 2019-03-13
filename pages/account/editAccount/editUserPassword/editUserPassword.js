@@ -17,6 +17,8 @@ Page({
     let newPwd2=e.detail.value.newPwd2;
     if(oldPwd !== wx.getStorageSync('userPwd')){
       common.showModal("当前密码输入错误，请重新输入！", "提示");
+    } else if (newPwd1.length < 3) {
+      common.showModal("新密码长度必须在3-20个字符之间");
     }else if(newPwd1 !== newPwd2){
       common.showModal("新密码两次输入不一致，请重新输入！", "提示");
     }else{

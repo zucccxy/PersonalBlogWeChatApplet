@@ -20,13 +20,13 @@
   /* align-items: center */
 }
 
-.article-list {
+/* .article-list {
   position: relative;
   padding: 20px;
   margin-bottom: 15px;
    background: #fff;
 
-}
+} */
 
 .blog {
   height: 100%;

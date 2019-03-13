@@ -8,6 +8,9 @@
     "pages/article/article",
     "pages/article/articleDetail/articleDetail",
 
+    "pages/share/share",
+    "pages/share/shareDetail/shareDetail",
+    
     "pages/account/account",
     "pages/account/collection/collection",
     "pages/account/news/news",
@@ -41,6 +44,12 @@
         "text": "博文",
         "iconPath": "image/news.png",
         "selectedIconPath": "image/news-active.png"
+      },
+      {
+        "pagePath":"pages/share/share",
+        "text":"分享",
+        "iconPath":"image/movie.png",
+        "selectedIconPath":"image/movie-active.png"
       },
       {
         "pagePath": "pages/account/account",

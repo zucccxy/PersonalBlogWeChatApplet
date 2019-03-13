@@ -15,8 +15,10 @@ Page({
     let account = e.detail.value;
     if (this.userAccount === account){
       common.showModal("账号不能跟之前相同，请修改！", "提示");
+    }else if(account.length<3){
+     common.showModal("账号长度必须在3-20个字符之间");
     }
-    else{
+else{
       let data={
         userId: wx.getStorageSync("userId"),
         account: account

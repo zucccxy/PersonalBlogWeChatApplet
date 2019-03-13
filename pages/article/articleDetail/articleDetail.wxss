@@ -37,8 +37,8 @@
 }
 
 .no-cover {
-  background: #1f3747;
-  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);
+  background: #08368b;
+  background-image: -webkit-linear-gradient(left, #089ef5, #074ee7);
 }
 
 .caption {
@@ -130,7 +130,6 @@
   text-align: center;
   margin-right: 4px;
   color: #4b0;
-  font-size: 14px;
   float: left;
   margin-top: 9px;
   margin-left: 8px;

@@ -20,7 +20,7 @@
       </view>
     </view>
   </view>
-   <view class='user-bg' style='background-image:url(http://www.diwuyuan.com/bbs/uc_server/data/avatar/000/00/02/52_avatar_big.jpg)'>
+   <view class='user-bg' style='background-image:url(../../image/sea.jpg);opacity:.8;filter:blur(0px)'>
   </view>
   </view>
 <view class="bigline"></view>

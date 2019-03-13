@@ -16,9 +16,9 @@ Page({
     },
     currentItemId:-1,
     imgUrls: [
-      '../../image/school.jpg', 
-      '../../image/kobe.png',
-      '../../image/zhaopin.jpg'
+      '../../image/blog_3.jpg',
+      '../../image/blog_1.jpg', 
+      '../../image/blog_2.jpg',
     ],
     indicatorDots: true,
     autoplay: true,
